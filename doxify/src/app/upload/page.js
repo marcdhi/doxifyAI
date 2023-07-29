@@ -64,7 +64,10 @@ export default function Basic(props) {
     ));
 
     return (
-        <div className='flex h-screen bg-black justify-center items-center relative'>
+        <div className='flex flex-col h-screen bg-black justify-center items-center relative gap-36'>
+            <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-gray-400 inline text-[72px] font-bold">
+              DoxifyAI
+            </h1>
             <div className=' w-1/3 h-1/3 rounded-xl p-10 flex justify-between flex-col border-[1px] border-slate-600 hover:shadow-[5px_5px_rgba(86,_22,_122,_0.4),_10px_10px_rgba(86,_22,_122,_0.3),_15px_15px_rgba(86,_22,_122,_0.2),_20px_20px_rgba(86,_22,_122,_0.1),_25px_25px_rgba(86,_22,_122,_0.05)] z-10 bg-gray-600 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-40'>
                 <h4 className=' flex justify-center m-4 font-semibold text-gray-100'>Upload Zip file of your code</h4>
                 <section className="container">
