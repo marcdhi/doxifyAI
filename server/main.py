@@ -48,7 +48,7 @@
 import os
 from queue import Queue
 from fastapi import FastAPI
-import erdantic as erd
+# import erdantic as erd
 
 app = FastAPI()
 
