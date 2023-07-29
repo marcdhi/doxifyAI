@@ -70,7 +70,7 @@ export default function Basic(props) {
                 <section className="container">
                     <div {...getRootProps({ style })}>
                         <input {...getInputProps()} />
-                        <p>Drag 'n' drop, or click to select files</p>
+                        <p>Drag &apos;n&apos; drop, or click to select files</p>
                         <p>Choose only one file</p>
                     </div>
                     <aside>
