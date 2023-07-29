@@ -50,6 +50,7 @@ from fastapi import FastAPI
 from utils.traverse_file import bfs_traversal
 from utils.traverse_file import bfs_traversal_with_models_py
 from utils.folder_to_zip import folder_to_zip
+from utils.extract_zip import extract_zip
 # import erdantic as erd
 
 app = FastAPI()
@@ -75,4 +76,9 @@ def generate_all_docs():
 @app.get("/zipFile")
 def zip_file():
     response = folder_to_zip("files", "output")
+    return {"message": f"response: {response}"}
+
+@app.get("/extractZip")
+def extract_zip_file():
+    response = extract_zip("output.zip", "files")
     return {"message": f"response: {response}"}
