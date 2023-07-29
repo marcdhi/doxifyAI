@@ -67,10 +67,10 @@ def home():
 
 @app.get("/doxify_all")
 def generate_all_docs():
-    tech_stack="DJango"
+    # tech_stack="DJango"
     bfs_traversal("./files")
-    if(tech_stack=="DJango"):
-        generate_erd()
+    # if(tech_stack=="DJango"):
+    #     generate_erd()
     return {"message": "All files doxified."}
 
 @app.get("/zipFile")
