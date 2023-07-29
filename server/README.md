@@ -5,6 +5,6 @@
 * Install dependencies `pip install -r requirements.txt`
 * Make a folder `model` and paste the model there
 
-# To run the sever
+# To run the server
 
 * `uvicorn main:app --reload`

@@ -48,8 +48,29 @@
 import os
 from queue import Queue
 from fastapi import FastAPI
+import erdantic as erd
 
 app = FastAPI()
+
+# a function that reads through all the files in the directory and subdirectories and returns the path of the file that has models.py
+def bfs_traversal_with_models_py(root_dir):
+    queue = Queue()
+    queue.put(root_dir)
+
+    while not queue.empty():
+        current_dir = queue.get()
+
+        try:
+            with os.scandir(current_dir) as entries:
+                for entry in entries:
+                    if entry.is_dir():
+                        queue.put(entry.path)
+                    else:
+                        if entry.name=="models.py":
+                            #sends the file path to the function that will process the code
+                            process_file(entry.path)
+        except OSError as e:
+            print("Error accessing directory:", e)
 
 def bfs_traversal(root_dir):
     queue = Queue()
@@ -64,6 +85,7 @@ def bfs_traversal(root_dir):
                     if entry.is_dir():
                         queue.put(entry.path)
                     else:
+                        #sends the file path to the function that will process the code
                         process_file(entry.path)
         except OSError as e:
             print("Error accessing directory:", e)
@@ -74,11 +96,19 @@ def process_file(file_path):
         # Process the file here
         print(prompt_text)
 
+def generate_erd():
+    bfs_traversal_with_models_py("./files/")
+    print("Generating ERD....")
+
+
 @app.get("/")
 def home():
     return {"Doxify": "Works"}
 
 @app.get("/doxify_all")
 def generate_all_docs():
+    tech_stack="DJango"
     bfs_traversal("./files")
+    if(tech_stack=="DJango"):
+        generate_erd()
     return {"message": "All files doxified."}
