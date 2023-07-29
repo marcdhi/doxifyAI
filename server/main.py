@@ -45,56 +45,14 @@
 #     bfs_traversal("./files")
 #     return {"message": "All files doxified."}
 
-import os
-from queue import Queue
+
 from fastapi import FastAPI
-# import erdantic as erd
+from utils.traverse_file import bfs_traversal
+from utils.traverse_file import bfs_traversal_with_models_py
+
 
 app = FastAPI()
 
-# a function that reads through all the files in the directory and subdirectories and returns the path of the file that has models.py
-def bfs_traversal_with_models_py(root_dir):
-    queue = Queue()
-    queue.put(root_dir)
-
-    while not queue.empty():
-        current_dir = queue.get()
-
-        try:
-            with os.scandir(current_dir) as entries:
-                for entry in entries:
-                    if entry.is_dir():
-                        queue.put(entry.path)
-                    else:
-                        if entry.name=="models.py":
-                            #sends the file path to the function that will process the code
-                            process_file(entry.path)
-        except OSError as e:
-            print("Error accessing directory:", e)
-
-def bfs_traversal(root_dir):
-    queue = Queue()
-    queue.put(root_dir)
-
-    while not queue.empty():
-        current_dir = queue.get()
-
-        try:
-            with os.scandir(current_dir) as entries:
-                for entry in entries:
-                    if entry.is_dir():
-                        queue.put(entry.path)
-                    else:
-                        #sends the file path to the function that will process the code
-                        process_file(entry.path)
-        except OSError as e:
-            print("Error accessing directory:", e)
-
-def process_file(file_path):
-    with open(file_path, 'r', encoding='utf-8') as file:
-        prompt_text = file.read()
-        # Process the file here
-        print(prompt_text)
 
 def generate_erd():
     bfs_traversal_with_models_py("./files/")
