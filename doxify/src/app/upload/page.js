@@ -125,8 +125,8 @@ export default function Basic(props) {
                         onChange={(e) => setTechStack(e.target.value)}
                         label="TechStack"
                     >
-                        {options.map((data) => {
-                            return <MenuItem value={data}>{data}</MenuItem>
+                        {options.map((data,index) => {
+                            return <MenuItem value={data} key={index}>{data}</MenuItem>
                         })}
                     </Select>
                 </FormControl>
