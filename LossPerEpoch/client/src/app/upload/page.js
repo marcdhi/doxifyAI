@@ -85,7 +85,7 @@ export default function Basic(props) {
             redirect: "follow",
           };
 
-        const response = await fetch("https://f5c7-14-142-151-66.ngrok-free.app/doxify", requestOptions);
+        const response = await fetch("https://bb42-14-142-151-66.ngrok-free.app/doxify", requestOptions);
         if (response.ok) {
             console.log("all is good")
         }
