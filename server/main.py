@@ -45,8 +45,9 @@
 #     bfs_traversal("./files")
 #     return {"message": "All files doxified."}
 
-
-from fastapi import FastAPI
+from typing import Annotated
+from fastapi import FastAPI, File, Form, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 from utils.traverse_file import bfs_traversal
 from utils.traverse_file import bfs_traversal_with_models_py
 from utils.folder_to_zip import folder_to_zip
@@ -54,6 +55,15 @@ from utils.extract_zip import extract_zip
 # import erdantic as erd
 
 app = FastAPI()
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 def generate_erd():
@@ -72,6 +82,18 @@ def generate_all_docs():
     # if(tech_stack=="DJango"):
     #     generate_erd()
     return {"message": "All files doxified."}
+
+@app.post("/doxify")
+async def upload_file(file: UploadFile = File(...)):
+    with open(f'uploads/{file.filename}', 'wb') as f:
+        while chunk := await file.read(1024):
+            f.write(chunk)
+    extract_zip(f'uploads/{file.filename}', "files")
+
+
+    return {'message': 'File uploaded successfully'}
+
+
 
 @app.get("/zipFile")
 def zip_file():
