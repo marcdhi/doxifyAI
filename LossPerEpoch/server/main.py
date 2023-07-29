@@ -45,6 +45,7 @@
 #     bfs_traversal("./files")
 #     return {"message": "All files doxified."}
 
+import os
 from typing import Annotated
 from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -70,6 +71,10 @@ def generate_erd():
     bfs_traversal_with_models_py("./files/")
     print("Generating ERD....")
 
+def create_folder_if_not_exists(folder_path):
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+
 
 @app.get("/")
 def home():
@@ -85,7 +90,10 @@ def generate_all_docs():
 
 @app.post("/doxify")
 async def upload_file(file: UploadFile = File(...)):
-    with open(f'uploads/{file.filename}', 'wb') as f:
+    upload_folder = "uploads"
+    create_folder_if_not_exists(upload_folder)
+    
+    with open(f'{upload_folder}/{file.filename}', 'wb') as f:
         while chunk := await file.read(1024):
             f.write(chunk)
     extract_zip(f'uploads/{file.filename}', "files")
