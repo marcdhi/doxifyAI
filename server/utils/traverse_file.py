@@ -5,6 +5,8 @@ import os
 def bfs_traversal(root_dir):
     queue = Queue()
     queue.put(root_dir)
+    file_dict = []
+    i=0
 
     while not queue.empty():
         current_dir = queue.get()
@@ -12,13 +14,19 @@ def bfs_traversal(root_dir):
         try:
             with os.scandir(current_dir) as entries:
                 for entry in entries:
+                    
                     if entry.is_dir():
                         queue.put(entry.path)
                     else:
                         #sends the file path to the function that will process the code
+                        print(i)
+                        i+=1
+                        print(entry.path)
+                        file_dict.append(entry.path)
                         process_file(entry.path)
         except OSError as e:
             print("Error accessing directory:", e)
+    print(file_dict)
 
 
 def bfs_traversal_with_models_py(root_dir):
