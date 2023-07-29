@@ -49,7 +49,8 @@
 from fastapi import FastAPI
 from utils.traverse_file import bfs_traversal
 from utils.traverse_file import bfs_traversal_with_models_py
-
+from utils.folder_to_zip import folder_to_zip
+# import erdantic as erd
 
 app = FastAPI()
 
@@ -70,3 +71,8 @@ def generate_all_docs():
     if(tech_stack=="DJango"):
         generate_erd()
     return {"message": "All files doxified."}
+
+@app.get("/zipFile")
+def zip_file():
+    response = folder_to_zip("files", "output")
+    return {"message": f"response: {response}"}
