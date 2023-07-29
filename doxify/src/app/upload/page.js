@@ -76,17 +76,14 @@ export default function Basic(props) {
     const uploadHandler = async () => {
         const formData = new FormData();
         if (acceptedFiles.length > 0) {
-            formData.append("inputFile", acceptedFiles[0]);
+            formData.append("file", acceptedFiles[0]);
         }
 
         var requestOptions = {
-            method: 'POST',
+            method: "POST",
             body: formData,
-            redirect: 'follow',
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-        };
+            redirect: "follow",
+          };
 
         const response = await fetch("https://f5c7-14-142-151-66.ngrok-free.app/doxify", requestOptions);
         if (response.ok) {
