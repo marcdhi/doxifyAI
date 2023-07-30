@@ -100,7 +100,7 @@ To clone and run the prototype for testing and analysis, follow the instructions
 - Input repo : `https://github.com/mittal-parth/Cluboard/`
 - Output Docs : 
 1. [Documentation_1](/LossPerEpoch/client/examples/clubhouse/output0.md)
-2. [Documentation_1](/LossPerEpoch/client/examples/clubhouse/output1.md)
+2. [Documentation_2](/LossPerEpoch/client/examples/clubhouse/output1.md)
 
 
 ## What We Learned
