@@ -11,7 +11,28 @@ For any inquiries or feedback, you can reach out to the Team Leader at hriday.mh
 [Include UML diagrams here to visualize the architecture and design of the prototype.]
 
 ### Prototype Description
-[Provide a brief description of the prototype, outlining its main features and functionality.]
+
+# Full Codebase to Developer Docs in One Step
+Our prototype offers a seamless solution to transform a full codebase into comprehensive developer documentation in just one step. By uploading a zip file containing the codebase, you can let the magic happen. The resulting documentation includes function explanations, API specs, table schemas, and dependencies, all in Markdown format.
+
+# Harnessing GPT-3.5 Capabilities
+To power our documentation generation, we leverage the capabilities of GPT-3.5. This advanced language model enables us to produce accurate and contextually relevant documentation for the given codebase.
+
+# A Step-by-Step Approach
+1. Codebase Traversal: The process begins by traversing the codebase in a tree-wise fashion to access its contents.
+
+2. Code Embeddings with CodeBERT: To extract meaningful information from the code, we employ Microsoft's CodeBERT for code embeddings. However, we encountered an issue with large code files that CodeBERT cannot handle effectively.
+
+3. Handling Large Code Files: To overcome the limitations of CodeBERT for large code files, we devised our own algorithm to create tokenizers in a window-like manner. By specifying a window size and an overlap "region," we maintain essential context and generate embeddings by averaging the embeddings produced for each window.
+
+4. Maintaining Context with Agglomerating Clustering: To ensure context preservation across the codebase, we use Agglomerating Clustering. This technique groups "similar" code files with shared semantic meanings and features, enhancing the quality of the generated documentation.
+
+5. Efficient Documentation Generation: After clustering, we concatenate the code files belonging to the same cluster. The resulting concatenated code is then sent to GPT-3.5 using efficient prompt engineering techniques. The generated documentation provides comprehensive insights into the codebase.
+
+# Summary
+Our prototype streamlines the documentation process by converting a full codebase into developer documentation in a single step. Leveraging GPT-3.5, we produce accurate and contextually relevant documentation, addressing the challenges of manual documentation processes. The resulting documentation enhances code comprehension, reduces technical debt, and improves code maintainability for software development teams.
+
+
 
 ## Tech Stack
 List of technologies used to build the prototype:
