@@ -43,14 +43,12 @@ To clone and run the prototype for testing and analysis, follow the instructions
    pip install -r requirements.txt
    ```
 
-4. Create a folder named "model" and paste the required model files there.
-
-5. To run the server, use the following command:
+4. To run the server, use the following command:
    ```
    uvicorn main:app --reload
    ```
 
-### Client Frontend Setup
+### Client Frontend Setup(make sure you are in the client directory)
 
 1. Install Node.js dependencies:
    ```
@@ -63,4 +61,8 @@ To clone and run the prototype for testing and analysis, follow the instructions
    ```
 
 ## What I Learned
-[Share the most significant learning experience you had while developing the prototype. This could be a technical insight, a new skill acquired, or any valuable lesson learned during the process.]
+1. **Handling Large Code Files**: We faced a challenge with CodeBERT's inability to process large code files. To overcome this, we devised an algorithm to create tokenizers in a window-like manner, allowing us to maintain context by specifying a window size and overlap region. We then took the average of the embeddings produced to formulate our own embeddings for large files, addressing the issue of context preservation.
+
+2. **Aglomerate Clustering for Context Maintenance**: To keep context across the codebase, we used Agglomerate Clustering. This method grouped "similar" code files that shared semantic meanings and features. Concatenating code files within the same cluster, we sent them to GPT-3.5 using efficient prompt engineering to generate comprehensive documentation.
+
+3. **Persistence and Perseverance**: Despite facing difficulties with the clustering functionality, we persevered and continuously tried different approaches until we made it work. Our persistence paid off, and the successful implementation of clustering significantly improved the prototype's performance.
