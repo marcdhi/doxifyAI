@@ -10,6 +10,10 @@ For any inquiries or feedback, you can reach out to the Team Leader at hriday.mh
 ## UML Diagrams
 [Include UML diagrams here to visualize the architecture and design of the prototype.]
 
+## Architecture Diagram
+
+![Architecture Diagram](/LossPerEpoch/client/images/DoxifyAi_Diagram.jpg)
+
 ## Prototype Description
 
 ### Full Codebase to Developer Docs in One Step
@@ -80,8 +84,26 @@ To clone and run the prototype for testing and analysis, follow the instructions
    ```
    npm run dev
    ```
+## Examples - 
 
-## What I Learned
+1) Documentation of `ComicifyAI`:
+- Input repo : `https://github.com/ayush4345/Comicify.ai`
+- Output Docs :
+1. [Documentation_1](/LossPerEpoch/client/examples/comicify/output0.md)
+2. [Documentation_2](/LossPerEpoch/client/examples/comicify/output1.md)
+3. [Documentation_3](/LossPerEpoch/client/examples/comicify/output2.md)
+4. [Documentation_4](/LossPerEpoch/client/examples/comicify/output3.md)
+5. [Documentation_5](/LossPerEpoch/client/examples/comicify/output4.md)
+6. [Documentation_6](/LossPerEpoch/client/examples/comicify/output5.md)
+
+2) Documentation of `Cluboard`:
+- Input repo : `https://github.com/mittal-parth/Cluboard/`
+- Output Docs : 
+1. [Documentation_1](/LossPerEpoch/client/examples/clubhouse/output0.md)
+2. [Documentation_2](/LossPerEpoch/client/examples/clubhouse/output1.md)
+
+
+## What We Learned
 1. **Handling Large Code Files**: We faced a challenge with CodeBERT's inability to process large code files. To overcome this, we devised an algorithm to create tokenizers in a window-like manner, allowing us to maintain context by specifying a window size and overlap region. We then took the average of the embeddings produced to formulate our own embeddings for large files, addressing the issue of context preservation.
 
 2. **Aglomerate Clustering for Context Maintenance**: To keep context across the codebase, we used Agglomerate Clustering. This method grouped "similar" code files that shared semantic meanings and features. Concatenating code files within the same cluster, we sent them to GPT-3.5 using efficient prompt engineering to generate comprehensive documentation.
