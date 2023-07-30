@@ -96,8 +96,8 @@ To clone and run the prototype for testing and analysis, follow the instructions
 5. [Documentation_5](/LossPerEpoch/client/examples/comicify/output4.md)
 6. [Documentation_6](/LossPerEpoch/client/examples/comicify/output5.md)
 
-2) Documentation of `Clubhouse`:
-- Input repo : `0`
+2) Documentation of `Cluboard`:
+- Input repo : `https://github.com/mittal-parth/Cluboard/`
 - Output Docs : 
 1. [Documentation_1](/LossPerEpoch/client/examples/clubhouse/output0.md)
 2. [Documentation_1](/LossPerEpoch/client/examples/clubhouse/output1.md)
