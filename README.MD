@@ -4,7 +4,7 @@
 The lack of an automated solution for converting codebases into documentation poses challenges in terms of time, accuracy, and code comprehension. Documentation is often ignored by developers, especially in fast-building teams. However, this leads to severe technical debt. Since technical documentation is hard and existing tools are limited or expensive, there is a need for comprehensive automatic documentation generation.
 
 ## Team Leader Email
-For any inquiries or feedback, you can reach out to the Team Leader at hridaymht@gmail.com.
+For any inquiries or feedback, you can reach out to the Team Leader at hriday.mht@gmail.com.
 
 ## A Brief of the Prototype
 ### UML Diagrams
