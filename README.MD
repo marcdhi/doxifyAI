@@ -8,7 +8,7 @@ For any inquiries or feedback, you can reach out to the Team Leader at hriday.mh
 
 ## A Brief of the Prototype
 ## UML Diagrams
-[Include UML diagrams here to visualize the architecture and design of the prototype.]
+* As our current project does not involve storing data in databases, we can omit the creation of a UML diagram for now.
 
 ## Architecture Diagram
 
