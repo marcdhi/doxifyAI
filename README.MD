@@ -61,8 +61,8 @@ To clone and run the prototype for testing and analysis, follow the instructions
    ```
 
 ## What I Learned
-1. **Handling Large Code Files**: We faced a challenge with CodeBERT's inability to process large code files. To overcome this, we devised an algorithm to create tokenizers in a window-like manner, allowing us to maintain context by specifying a window size and overlap region. We then took the average of the embeddings produced to formulate our own embeddings for large files, addressing the issue of context preservation.
+1. **Handling Large Code Files**: We learned that existing models like CodeBERT have limitations when dealing with large code files. To overcome this, we devised our own algorithm to create tokenizers in a window-like manner, enabling us to maintain context and process extensive codebases effectively.
 
-2. **Aglomerate Clustering for Context Maintenance**: To keep context across the codebase, we used Agglomerate Clustering. This method grouped "similar" code files that shared semantic meanings and features. Concatenating code files within the same cluster, we sent them to GPT-3.5 using efficient prompt engineering to generate comprehensive documentation.
+2. **Aglomerate Clustering for Context Maintenance**: We discovered the importance of preserving context while generating code documentation. To achieve this, we implemented Agglomerate Clustering, which grouped similar code files based on semantic meanings and features. This approach ensured that documentation maintained the context of each code cluster, resulting in more meaningful and accurate outputs.
 
-3. **Persistence and Perseverance**: Despite facing difficulties with the clustering functionality, we persevered and continuously tried different approaches until we made it work. Our persistence paid off, and the successful implementation of clustering significantly improved the prototype's performance.
+3. **Persistence and Perseverance**: The development process presented challenges, particularly with the clustering functionality. However, we learned the value of persistence and problem-solving. By continuously trying different approaches and not giving up, we successfully resolved the clustering issue and improved the overall performance of the prototype.
