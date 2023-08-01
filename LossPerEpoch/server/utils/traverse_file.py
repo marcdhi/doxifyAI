@@ -5,8 +5,8 @@ import numpy as np
 from utils.infinite_gpt import process_chunks, call_openai_api_higher_tokens
 from utils.convert_embeddings import convert_embeddings, clustering
 
-media_extensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp','svg', 'mp3', 'wav', 'ogg', 'mp4', 'avi', 'mkv', 'ico', 'pdf', 'nix', 'ttf', 'lock', 'pyc']
-ignore_files = ['package-lock.json', 'venv', 'public']
+media_extensions = ['github','docs','jpg', 'jpeg', 'png', 'gif', 'bmp','svg', 'mp3', 'wav', 'ogg', 'mp4', 'avi', 'mkv', 'ico', 'pdf', 'nix', 'ttf', 'lock', 'pyc']
+ignore_files = ['package-lock.json', 'venv', 'public', 'assets', 'lotties', 'readme.md']
 
 def bfs_traversal(root_dir):
     queue = Queue()
